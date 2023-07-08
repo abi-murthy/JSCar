@@ -24,3 +24,19 @@ function getIntersection(A,B,c,d){
     };
     return ret;
 }
+
+function polyIntersect(A, B){
+    for (let i = 0; i<A.length;i++){
+        for (let j = 0;j<B.length;j++){
+            if(getIntersection(
+                A[i],
+                A[(i+1)%A.length],
+                B[j],
+                B[(j+1)%B.length]
+                )){
+                    return true;
+                }
+        }
+    }
+    return false;
+}
