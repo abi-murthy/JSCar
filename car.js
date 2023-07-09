@@ -23,7 +23,6 @@ class Car{
         }
         this.controls=new Controls(cType);
         // this.polygon = this.#createPolygon();
-        console.log(this)
     }
 
     draw(ctx,color, drawSensor = false){
@@ -47,17 +46,18 @@ class Car{
             this.#move();
             this.polygon=this.#createPolygon();
             this.damaged=this.#assessDamage(roadBorders,traffic);
-        }
         
-        if(this.sensor)
-        {
-            this.sensor.update(roadBorders,traffic);
-            const outs = this.brain.feedForward(this.sensor.readings.map(r=>r==null?0:1-r.offset));
-            if(this.ai){
-                this.controls.forward=outs[0];
-                this.controls.reverse=outs[1];
-                this.controls.left=outs[2];
-                this.controls.right=outs[3];
+        
+            if(this.sensor)
+            {
+                this.sensor.update(roadBorders,traffic);
+                const outs = this.brain.feedForward(this.sensor.readings.map(r=>r==null?0:1-r.offset));
+                if(this.ai){
+                    this.controls.forward=outs[0];
+                    this.controls.reverse=outs[1];
+                    this.controls.left=outs[2];
+                    this.controls.right=outs[3];
+                }
             }
         }
     }

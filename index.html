@@ -17,9 +17,14 @@
         <br>
         <div>I recommend staying below .2</div>
         <br>
+        <div>Trash to reset brain</div>
+        <br>
         <div>Try to get your car to cover </div>
         <div>a lot of distance, or become</div>
         <div>self-sufficient</div>
+        <br>
+        <div>My highest distance is over 20,000,</div>
+        <div>try to beat it!</div>
         <br>
         <a>Distance: </a><a id = "odometer">0</a>
     </div>
@@ -31,12 +36,16 @@
             <button onclick="save()">💾 </button>
 
             <button onclick="mutationChange(1)" id="increase-m">🔺</button>
-            <p id = "m-display" style="text-align:center;font-family:sans-serif">.1</p>
+            <button onclick="mutationChange(.5)" id="increase-m">🔺</button>
+            <button onclick="mutationChange(.1)" id="increase-m">🔺</button>
+            <p id = "m-display" style="text-align:center;font-family:sans-serif;padding:2px 8px">.1</p>
+            <button onclick="mutationChange(-.1)" id="decrease-m">🔻</button>
+            <button onclick="mutationChange(-.5)" id="decrease-m">🔻</button>
             <button onclick="mutationChange(-1)" id="decrease-m">🔻</button>
             <script>
                 let m = document.getElementById("m-display");
                 if(sessionStorage.getItem("mutation")){
-                m.innerHTML = Number(sessionStorage.getItem("mutation")).toFixed(2);
+                m.innerHTML = Number(sessionStorage.getItem("mutation")).toFixed(3);
                 }
             </script>
 

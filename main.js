@@ -2,7 +2,7 @@ const canvas=document.getElementById("myCanvas");
 
 canvas.width=200;
 
-const NUMCARS = 300;
+const NUMCARS = 350;
 let MUTATION = .10;
 
 if (sessionStorage.getItem("mutation")){
@@ -56,9 +56,10 @@ function addTraffic(y,numLanes = road.laneCount){
     }
 }
 
-function getM(){
-    console.log("gpt");
-}
+// function getM(){
+//     console.log("gpt");
+// }
+
 function mutationChange(sign){
     MUTATION +=.01*sign;
     if (MUTATION>1){
@@ -68,9 +69,8 @@ function mutationChange(sign){
         MUTATION=0;
     }
     const elem = document.getElementById("m-display");
-    elem.innerHTML = MUTATION.toFixed(2);
+    elem.innerHTML = MUTATION.toFixed(3);
     sessionStorage.setItem("mutation",MUTATION);
-    console.log(MUTATION);
 }
 
 function generateCars(N){
@@ -102,8 +102,6 @@ function animate(){
     if (bestCar.y <ticker){
         displacement +=200;
         addTraffic(ticker-800);
-        console.log("here");
-        console.log(ticker);
     }
     for (let k = 0; k<traffic.length;k++){
         traffic[k].update(road.border,[]);
