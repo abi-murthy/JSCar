@@ -7,7 +7,43 @@
     <title>JSCar</title>
 </head>
 <body>
+    <div style="padding:20px;">
+        <h1>Self driving car</h1>
+        <div>Save to keep brain of car with sensor</div>
+        <br>
+        <div>Mutation num is how much next run</div>
+        <div>will mutate the saved brain,</div>
+        <div>0 being exact same 1 being random</div>
+        <br>
+        <div>I recommend staying below .2</div>
+        <br>
+        <div>Try to get your car to cover </div>
+        <div>a lot of distance, or become</div>
+        <div>self-sufficient</div>
+        <br>
+        <a>Distance: </a><a id = "odometer">0</a>
+    </div>
     <canvas id="myCanvas"></canvas>
+    <div>
+        
+        <div class = "save-delete-buttons">
+            
+            <button onclick="save()">💾 </button>
+
+            <button onclick="mutationChange(1)" id="increase-m">🔺</button>
+            <p id = "m-display" style="text-align:center;font-family:sans-serif">.1</p>
+            <button onclick="mutationChange(-1)" id="decrease-m">🔻</button>
+            <script>
+                let m = document.getElementById("m-display");
+                if(sessionStorage.getItem("mutation")){
+                m.innerHTML = Number(sessionStorage.getItem("mutation")).toFixed(2);
+                }
+            </script>
+
+            <button onclick="window.location.reload()">🔂 </button>
+            <button onclick="discard()">🗑</button>
+        </div>
+    </div>
     <script src="sensor.js"></script>
     <script src="network.js"></script>
     <script src="utils.js"></script>

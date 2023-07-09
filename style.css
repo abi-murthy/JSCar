@@ -2,9 +2,26 @@ body{
     margin:0;
     background:darkgrey;
     overflow:hidden;
-    text-align:center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #myCanvas{
     background:lightgrey;
+}
+
+.save-delete-buttons{
+    display:flex;
+    flex-direction: column;
+
+    
+}
+
+.save-delete-buttons > button{
+    padding:4px;
+    font-size: 20px;
+    border:none;
+    margin:3px;
+
 }
