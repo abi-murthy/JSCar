@@ -2,7 +2,7 @@ const canvas=document.getElementById("myCanvas");
 
 canvas.width=200;
 
-const NUMCARS = 350;
+const NUMCARS = 500;
 let MUTATION = .10;
 
 if (sessionStorage.getItem("mutation")){
@@ -120,12 +120,14 @@ function animate(){
     for (let k = 0; k<traffic.length;k++){
         traffic[k].draw(ctx, "red");
     }
-    ctx.globalAlpha = .2;
-    for (let j = 0; j<cars.length;j++){
-        cars[j].draw(ctx, "blue");    
-    }  
-    ctx.globalAlpha = 1;
+    if(true){ctx.globalAlpha = .2;
+        for (let j = 0; j<cars.length;j++){
+            cars[j].draw(ctx, "blue");    
+        }  
+        ctx.globalAlpha = 1;
+    }
     bestCar.draw(ctx, "blue",true); 
+    
     
 
 
